@@ -1,3 +1,4 @@
+#Environment setting
 library(plyr)
 nameProj <- "Project"
 destProj <-paste ("./" , nameProj ,"/", sep = "")
@@ -8,7 +9,7 @@ if(!file.exists(nameProj))
 {
   dir.create(nameProj)
 }
-
+#LOAD DATA
 if(!file.exists( paste( destProj,"Project.zip", sep = "") ))
 {
   zipProjectUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -71,6 +72,8 @@ data$activity <- mapvalues(data$activity, from= levels(factor(data$activity)),to
 
 dataMean <- aggregate(data, list(data$subject, data$activity), mean)
 
-
+# clean up the columns and column names from a result of aggregating
+dataMean$subject <- NULL; dataMean$activity <- NULL
+names(dataMean)[1] <- "subject"; names(dataMean)[2] <- "activity"
 
 write.table(file = "activitySubjectAverage.txt", x = dataMean, row.names = FALSE)
