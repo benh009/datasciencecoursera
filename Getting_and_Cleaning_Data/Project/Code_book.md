@@ -1,4 +1,4 @@
-#Project getting and cleaning data : Human Activity Recognition Using Smartphones Data Set 
+#Project : getting and cleaning data 
 
 ##Abstract 
  Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors.
@@ -23,6 +23,7 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 - subject_test.txt: contains the participant number (1-30) for the test data  
 - y_test.txt: contains the activity number (1-6) for the test data  
 - x_test.txt: contains the vector information (1-531) for the test data  
+
 You can find the same files for training data.
 
 - features.txt: contains the variables measured
@@ -33,7 +34,6 @@ For more detailed information on the original data set consult the README.txt an
 
 ##Transformations 
 
-
 ###Merges the training and the test sets to create one data set.
 The test and training data sets were merged together into a single data frame. 
 
@@ -42,8 +42,9 @@ This step was to create a summarising data frame that displayed only mean and st
 
 ###Uses descriptive activity names to name the activities in the data set
 The numeric labels for activities were converted to descriptive ones using the map values function and activity_labels text file. They were then tidied up by changing the characters to lower case and replacing underscores with spaces.
+
 ### New independent tidy data set
 creates a independent tidy data set with the average of each variable for each activity and each subject.
 
 ###Appropriately labels the data set with descriptive variable names.
-
+The vector measurement column names were labeled according to the features text file.
